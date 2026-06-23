@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Devang Gaudana | R&D Electronics Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+:root{
+--bg:#0d0505;
+--card:#171010;
+--gold:#c9a14a;
+--text:#f5f5f5;
+--muted:#b9b9b9;
+--border:rgba(201,161,74,0.15);
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Inter',sans-serif;
+background:var(--bg);
+color:var(--text);
+overflow-x:hidden;
+}
+
+body::before{
+content:"";
+position:fixed;
+inset:0;
+pointer-events:none;
+background:
+radial-gradient(circle at top right, rgba(201,161,74,0.08), transparent 30%),
+radial-gradient(circle at bottom left, rgba(201,161,74,0.05), transparent 25%);
+z-index:-1;
+}
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:22px 8%;
+backdrop-filter:blur(10px);
+background:rgba(13,5,5,0.6);
+border-bottom:1px solid var(--border);
+z-index:1000;
+}
+
+.logo{
+font-weight:800;
+font-size:1.1rem;
+letter-spacing:2px;
+}
+
+.logo span{
+color:var(--gold);
+}
+
+nav ul{
+display:flex;
+gap:28px;
+list-style:none;
+}
+
+nav a{
+color:var(--muted);
+text-decoration:none;
+font-size:0.9rem;
+transition:0.3s;
+}
+
+nav a:hover{
+color:var(--gold);
+}
+
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+padding:0 8%;
+position:relative;
+}
+
+.hero-grid{
+display:grid;
+grid-template-columns:1.2fr 0.8fr;
+gap:50px;
+align-items:center;
+width:100%;
+}
+
+.hero-tag{
+color:var(--gold);
+letter-spacing:4px;
+font-size:0.8rem;
+margin-bottom:20px;
+}
+
+.hero h1{
+font-size:5rem;
+line-height:1;
+margin-bottom:20px;
+}
+
+.hero p{
+max-width:650px;
+line-height:1.8;
+color:var(--muted);
+font-size:1rem;
+}
+
+.hero-buttons{
+margin-top:35px;
+display:flex;
+gap:16px;
+}
+
+.btn{
+padding:14px 24px;
+border-radius:8px;
+text-decoration:none;
+font-weight:600;
+transition:0.3s ease;
+}
+
+.primary{
+background:var(--gold);
+color:black;
+}
+
+.secondary{
+border:1px solid var(--gold);
+color:var(--text);
+}
+
+.btn:hover{
+transform:translateY(-4px);
+}
+
+.hero-card{
+background:linear-gradient(145deg,#1b1010,#120909);
+border:1px solid var(--border);
+padding:30px;
+border-radius:24px;
+position:relative;
+overflow:hidden;
+box-shadow:0 20px 40px rgba(0,0,0,0.4);
+}
+
+.hero-card::before{
+content:"";
+position:absolute;
+inset:0;
+background-image:
+linear-gradient(rgba(201,161,74,0.07) 1px, transparent 1px),
+linear-gradient(90deg, rgba(201,161,74,0.07) 1px, transparent 1px);
+background-size:35px 35px;
+mask-image:linear-gradient(to bottom,rgba(0,0,0,1),transparent);
+}
+
+.hero-card-content{
+position:relative;
+z-index:2;
+}
+
+.status{
+display:inline-flex;
+align-items:center;
+gap:8px;
+background:#241717;
+padding:8px 14px;
+border-radius:50px;
+border:1px solid var(--border);
+font-size:0.8rem;
+margin-bottom:20px;
+}
+
+.dot{
+width:10px;
+height:10px;
+background:#00ff84;
+border-radius:50%;
+box-shadow:0 0 10px #00ff84;
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+0%{transform:scale(1);opacity:1;}
+50%{transform:scale(1.3);opacity:0.6;}
+100%{transform:scale(1);opacity:1;}
+}
+
+.section{
+padding:100px 8%;
+}
+
+.section-title{
+font-size:2.5rem;
+margin-bottom:20px;
+}
+
+.section-title span{
+color:var(--gold);
+}
+
+.section-sub{
+max-width:700px;
+line-height:1.8;
+color:var(--muted);
+margin-bottom:50px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:24px;
+}
+
+.card{
+background:var(--card);
+border:1px solid var(--border);
+padding:28px;
+border-radius:20px;
+transition:0.35s;
+position:relative;
+overflow:hidden;
+}
+
+.card::before{
+content:"";
+position:absolute;
+width:140px;
+height:140px;
+background:rgba(201,161,74,0.05);
+border-radius:50%;
+top:-70px;
+right:-70px;
+}
+
+.card:hover{
+transform:translateY(-8px);
+border-color:rgba(201,161,74,0.4);
+}
+
+.card i{
+font-size:1.5rem;
+color:var(--gold);
+margin-bottom:18px;
+}
+
+.card h3{
+margin-bottom:14px;
+}
+
+.card p{
+line-height:1.7;
+color:var(--muted);
+font-size:0.95rem;
+}
+
+.timeline{
+display:flex;
+flex-direction:column;
+gap:24px;
+}
+
+.timeline-item{
+background:var(--card);
+border:1px solid var(--border);
+padding:30px;
+border-radius:20px;
+}
+
+.timeline-item h3{
+margin-bottom:8px;
+}
+
+.timeline-item span{
+color:var(--gold);
+font-size:0.85rem;
+}
+
+.timeline-item p{
+margin-top:14px;
+line-height:1.8;
+color:var(--muted);
+}
+
+.skills{
+display:flex;
+flex-wrap:wrap;
+gap:12px;
+}
+
+.skill{
+padding:10px 18px;
+background:#1d1313;
+border:1px solid var(--border);
+border-radius:50px;
+font-size:0.85rem;
+color:var(--gold);
+}
+
+.contact-box{
+background:linear-gradient(145deg,#1a1010,#120909);
+border:1px solid var(--border);
+padding:40px;
+border-radius:24px;
+text-align:center;
+}
+
+.contact-box h2{
+margin-bottom:18px;
+}
+
+.contact-box p{
+color:var(--muted);
+margin-bottom:25px;
+}
+
+.footer{
+padding:30px 8%;
+text-align:center;
+color:#777;
+font-size:0.9rem;
+border-top:1px solid var(--border);
+}
+
+@media(max-width:950px){
+.hero-grid{
+grid-template-columns:1fr;
+}
+
+.hero h1{
+font-size:3.5rem;
+}
+
+nav ul{
+display:none;
+}
+
+.section{
+padding:80px 6%;
+}
+}
+</style>
+</head>
+<body>
+
+<nav>
+<div class="logo">DEVANG<span>.</span></div>
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#experience">Experience</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<section class="hero">
+<div class="hero-grid">
+
+<div>
+<div class="hero-tag">R&D ELECTRONICS ENGINEER</div>
+<h1>Devang<br>Gaudana</h1>
+<p>
+Designing embedded systems, PCB hardware, and scalable electronics solutions with a strong focus on reliability, manufacturability, and real-world deployment.
+</p>
+
+<div class="hero-buttons">
+<a href="#projects" class="btn primary">View Projects</a>
+<a href="#contact" class="btn secondary">Hire Me</a>
+</div>
+</div>
+
+<div class="hero-card">
+<div class="hero-card-content">
+<div class="status">
+<div class="dot"></div>
+AVAILABLE FOR PROJECTS
+</div>
+
+<h3 style="margin-bottom:18px;">Technical Focus</h3>
+<p style="line-height:1.9;color:#b9b9b9;">
+• PCB Design & Review<br>
+• Embedded Systems Development<br>
+• IoT & Sensor Engineering<br>
+• Hardware Debugging<br>
+• System Integration
+</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="section" id="about">
+<h2 class="section-title">About <span>Me</span></h2>
+<p class="section-sub">
+Electronics & Communication Engineer specializing in R&D-driven hardware development, embedded systems, and scalable electronics products. Experienced in industrial electronics, motor drivers, IoT systems, and product-level integration.
+</p>
+</section>
+
+<section class="section" id="services">
+<h2 class="section-title">Services <span>& Skills</span></h2>
+
+<div class="grid">
+<div class="card">
+<i class="fa-solid fa-microchip"></i>
+<h3>PCB Design</h3>
+<p>Designing reliable schematics and production-ready PCB layouts with DFM/DFA considerations.</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-memory"></i>
+<h3>Embedded Systems</h3>
+<p>ESP32, STM32, communication protocols, and firmware-assisted hardware integration.</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-satellite-dish"></i>
+<h3>IoT Solutions</h3>
+<p>Remote monitoring systems, sensor integration, and connected embedded platforms.</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-screwdriver-wrench"></i>
+<h3>Debugging</h3>
+<p>Hardware troubleshooting, validation, testing, and optimization for reliable deployment.</p>
+</div>
+</div>
+</section>
+
+<section class="section" id="experience">
+<h2 class="section-title">Work <span>Experience</span></h2>
+
+<div class="timeline">
+<div class="timeline-item">
+<span>2026 — Present</span>
+<h3>KP Group | R&D Engineer</h3>
+<p>
+Designed and developed high-current H-bridge motor drivers (~30A) and contributed to solar panel cleaning robotics integration.
+</p>
+</div>
+
+<div class="timeline-item">
+<span>2025 — 2026</span>
+<h3>SLTL Group | R&D Electronics Engineer</h3>
+<p>
+Enhanced PCB layouts with DFM/DFA standards, integrated CAN & USB-C systems, and worked on industrial laser electronics.
+</p>
+</div>
+
+<div class="timeline-item">
+<span>2026</span>
+<h3>NOT Drones Innovation | Hardware Engineer</h3>
+<p>
+Worked on battery systems, PMIC integration, and testing infrastructure for drone electronics.
+</p>
+</div>
+</div>
+</section>
+
+<section class="section" id="projects">
+<h2 class="section-title">Featured <span>Projects</span></h2>
+
+<div class="grid">
+<div class="card">
+<h3>ESP32-CAM Security System</h3>
+<p>
+Motion-triggered surveillance framework using PIR sensing and Telegram API integration.
+</p>
+</div>
+
+<div class="card">
+<h3>Gas Monitoring Platform</h3>
+<p>
+Multi-sensor gas safety system with automated alerts and real-time monitoring.
+</p>
+</div>
+
+<div class="card">
+<h3>30A Motor Driver</h3>
+<p>
+Industrial-grade H-bridge motor driver using TI DRV8701 with protection systems.
+</p>
+</div>
+</div>
+</section>
+
+<section class="section">
+<h2 class="section-title">Technical <span>Stack</span></h2>
+
+<div class="skills">
+<div class="skill">KiCad</div>
+<div class="skill">OrCAD</div>
+<div class="skill">ESP32</div>
+<div class="skill">STM32</div>
+<div class="skill">CAN Bus</div>
+<div class="skill">I2C / SPI / UART</div>
+<div class="skill">EMI / EMC</div>
+<div class="skill">PCB Design</div>
+<div class="skill">IoT Systems</div>
+</div>
+</section>
+
+<section class="section" id="contact">
+<div class="contact-box">
+<h2>Let's Work Together</h2>
+<p>
+Open for freelance electronics development, embedded systems, and hardware consulting projects.
+</p>
+
+<div class="hero-buttons" style="justify-content:center;flex-wrap:wrap;">
+<a href="tel:+919099092792" class="btn primary">Call Me</a>
+<a href="mailto:ece.devang@gmail.com" class="btn secondary">Send Email</a>
+</div>
+</div>
+</section>
+
+<footer class="footer">
+© 2026 Devang Gaudana — Engineered. Tested. Delivered.
+</footer>
+
+</body>
+</html>
+```
